@@ -134,8 +134,6 @@ ENV RATE_LIMIT_MAX_FAILURES="5"
 ENV RATE_LIMIT_LOCKOUT_TIME="300"
 ## Sleep N microseconds between failed attempts
 ENV RATE_LIMIT_FAIL_DELAY="3000000"
-## Google Auth args
-ENV ENV_GOOGLE_AUTH_ARGS=""
 
 ## Slack
 ENV SLACK_ENABLED="false" \
