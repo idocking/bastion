@@ -21,7 +21,11 @@ until [ -f "${HOME}/.google_authenticator" ]; do
   else
     echo -e "\nWelcome $USER. Please follow the prompts to setup your MFA device..."
     umask 0066
-    `echo "google-authenticator" ${ENV_GOOGLE_AUTH_ARGS} |xargs`
+    if [ -f "/.google_authenticator_args" ]; then
+      cat "/.google_authenticator_args" |xargs google-authenticator
+    else
+      google-authenticator
+    fi
     if [ $? -ne 0 ]; then
       echo "MFA setup failed"
       exit 1;
