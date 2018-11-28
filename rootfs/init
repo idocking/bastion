@@ -3,11 +3,7 @@
 for script in /etc/init.d/* ; do
   if [ -r $script ] && [ -x $script ]; then
     echo "Initializing $(basename ${script})"
-    $script
-    if [ $? -ne 0 ]; then
-      echo "FATAL: Failed to initialize"
-      exit 1
-    fi
+    $script start
   fi
 done
 
