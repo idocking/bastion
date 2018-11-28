@@ -81,7 +81,7 @@ LABEL maintainer="erik@cloudposse.com"
 USER root
 
 ## Install dependencies
-RUN apk --update add curl drill groff util-linux bash xauth gettext openssl-dev shadow sudo && \
+RUN apk --update add curl drill groff util-linux bash xauth gettext openssl-dev shadow sudo iptables busynox-extra vim net-tools ca-certificates libqrencode && \
     rm -rf /etc/ssh/ssh_host_*_key* && \
     rm -f /usr/bin/ssh-agent && \
     rm -f /usr/bin/ssh-keyscan && \
@@ -134,6 +134,8 @@ ENV RATE_LIMIT_MAX_FAILURES="5"
 ENV RATE_LIMIT_LOCKOUT_TIME="300"
 ## Sleep N microseconds between failed attempts
 ENV RATE_LIMIT_FAIL_DELAY="3000000"
+## Google Auth args
+ENV ENV_GOOGLE_AUTH_ARGS=""
 
 ## Slack
 ENV SLACK_ENABLED="false" \
